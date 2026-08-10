@@ -15,7 +15,8 @@ button,input,select{font:inherit}
 button{cursor:pointer}
 
 .header{height:64px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 24px;position:sticky;top:0;background:#fff;z-index:30}
-.logo{font-size:18px;font-weight:800;display:flex;align-items:center;gap:10px}
+.logo{font-size:18px;font-weight:800;display:flex;align-items:baseline;gap:10px}
+.logo .brand{white-space:nowrap}
 .logo-sep{color:var(--line);font-weight:400}
 .logo-page{color:var(--muted);font-weight:600;font-size:14px}
 .logo .studio-word{color:var(--accent)}
@@ -277,6 +278,20 @@ table.qd-table tbody tr.qd-room-row:first-child td{padding-top:4px}
   .toolbar{display:block}
   .search{width:100%;margin-top:10px}
   .sub-toggle{grid-template-columns:1fr}
+  .logo{flex-direction:column;align-items:flex-start;gap:1px;font-size:13.5px}
+  .logo .brand{line-height:1.15}
+  .logo-tail{display:flex;align-items:center;gap:5px;line-height:1.1}
+  .logo-sep{display:none}
+  .logo-page{font-size:10px}
+}
+/* Narrowest phones (incl. Z Fold cover screen ~370-390px CSS width): trims
+   the header buttons further so "☰ Categories" + "Quotation" + the stacked
+   logo never overflow the row and force horizontal scroll on the page. */
+@media(max-width:400px){
+  .header{padding:0 14px}
+  .catbtn, .cartbtn{padding:7px 9px;font-size:11.5px;gap:5px}
+  .catbtn-label{display:none}
+  .headright{gap:8px}
 }
 /* Tablet tier — e.g. Galaxy Z Fold unfolded (~700-830px portrait): plenty of
    width for both side panels at once, just not at their full desktop size.
@@ -310,9 +325,9 @@ table.qd-table tbody tr.qd-room-row:first-child td{padding-top:4px}
 <body>
 
 <header class="header">
-  <div class="logo">Fred Wong <span class="studio-word">Studio</span><span class="logo-sep">|</span><span class="logo-page">Quotation</span></div>
+  <div class="logo"><span class="brand">Fred Wong <span class="studio-word">Studio</span></span><span class="logo-tail"><span class="logo-sep">|</span><span class="logo-page">Quotation</span></span></div>
   <div class="headright">
-    <button class="catbtn" onclick="toggleCategoryDrawer()">☰ Categories</button>
+    <button class="catbtn" onclick="toggleCategoryDrawer()">☰ <span class="catbtn-label">Categories</span></button>
     <button class="cartbtn" onclick="toggleCart()">Quotation <span id="badge" class="badge">0</span></button>
   </div>
 </header>
