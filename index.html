@@ -263,7 +263,7 @@ table.qd-table tbody tr.qd-room-row:first-child td{padding-top:4px}
   .carthead .cartclose{display:block}
   .overlay.show{display:block}
   .layout{flex-direction:column}
-  .catbtn{display:flex}
+  .catbtn{display:flex;margin-right:12px}
   .sidebar{
     position:fixed;left:0;top:0;bottom:0;height:100vh;
     width:82vw;max-width:300px;
@@ -290,6 +290,7 @@ table.qd-table tbody tr.qd-room-row:first-child td{padding-top:4px}
 @media(max-width:400px){
   .header{padding:0 14px}
   .catbtn, .cartbtn{padding:7px 9px;font-size:11.5px;gap:5px}
+  .catbtn{margin-right:8px}
   .catbtn-label{display:none}
   .headright{gap:8px}
 }
@@ -325,9 +326,9 @@ table.qd-table tbody tr.qd-room-row:first-child td{padding-top:4px}
 <body>
 
 <header class="header">
+  <button class="catbtn" onclick="toggleCategoryDrawer()">☰ <span class="catbtn-label">Categories</span></button>
   <div class="logo"><span class="brand">Fred Wong <span class="studio-word">Studio</span></span><span class="logo-tail"><span class="logo-sep">|</span><span class="logo-page">Quotation</span></span></div>
   <div class="headright">
-    <button class="catbtn" onclick="toggleCategoryDrawer()">☰ <span class="catbtn-label">Categories</span></button>
     <button class="cartbtn" onclick="toggleCart()">Quotation <span id="badge" class="badge">0</span></button>
   </div>
 </header>
